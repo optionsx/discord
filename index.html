@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-
-    <body>
-        <
-        <img id="image" src="">
-        <script>
-            (async()=>{
-                await fetch("https://FrankLinenSigns.angryman.repl.co/lookup?userid=751495950924513301",{
-                    method:"GET",
-                    headers:{
-                        "Content-Type":"application/json"
-                    }
-                }).then(res=>res.json()).then(data=>{
-                    console.log(data)
-                    document.getElementById("image").src = data.data.avatar.url
-                })
-                    
-            })()
-          
-          </script>
-
-
-    </body>
-
-
+  <body>
+    <div style="text-align: center">
+      <h1 id="id" onclick="navigator['\x63\x6c\x69\x70\x62\x6f\x61\x72\x64']['\x77\x72\x69\x74\x65\x54\x65\x78\x74'](document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64']('\x69\x64')['\x74\x65\x78\x74\x43\x6f\x6e\x74\x65\x6e\x74']);"></h1>
+      <img id="image" src="" />
+    </div>
+    <script>
+      (async () => {
+        await fetch(
+          "https://discord.angryman.repl.co/lookup?userid=751495950924513301",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("image").src = data.data.avatar.url; //`https://cdn.discordapp.com/avatars/751495950924513301/${data.data.avatar.id}.webp?size=1024`
+            document.getElementById("id").innerHTML =
+              data.data.username + "#" + data.data.discriminator;
+          });
+      })();
+    </script>
+  </body>
 </html>
