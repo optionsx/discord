@@ -10,17 +10,16 @@
         await fetch(
           "https://discord.angryman.repl.co/lookup?userid=751495950924513301",
           {
-            method: "GET",
             headers: {
               "Content-Type": "application/json",
             },
           }
         )
           .then((res) => res.json())
-          .then((data) => {
-            document.getElementById("image").src = data.data.avatar.url; //`https://cdn.discordapp.com/avatars/751495950924513301/${data.data.avatar.id}.webp?size=1024`
+          .then(({data}) => {
+            document.getElementById("image").src = data.avatar.url; //`https://cdn.discordapp.com/avatars/751495950924513301/${data.data.avatar.id}.webp?size=1024`
             document.getElementById("id").innerHTML =
-              data.data.username + "#" + data.data.discriminator;
+            data.discriminator ? data.username + "#" + data.discriminator : !1
           });
       })();
     </script>
